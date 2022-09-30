@@ -26,4 +26,9 @@ export const {
       blue600: 'hsl(200, 15%, 8%)',
     },
   },
+
+  media: {
+    bp1: '(min-width: 375px)',
+    bp2: '(min-width: 1440px)',
+  },
 });

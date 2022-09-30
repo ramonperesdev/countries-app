@@ -7,11 +7,12 @@ export const HeaderContainer = styled('header', {
 });
 
 export const HeaderContent = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
   height: '100%',
   maxWidth: 1180,
+  display: 'flex',
+  alignItems: 'center',
   margin: '0  auto',
+  padding: '0 1rem',
 });
 
 export const TitleHeader = styled('h2', {});

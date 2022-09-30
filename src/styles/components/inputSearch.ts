@@ -10,6 +10,16 @@ export const BoxInput = styled('div', {
   boxShadow: '0px 0px 20px -5px rgba(0,0,0,0.25)',
   borderRadius: 5,
 
+  variants: {
+    width: {
+      desk: {
+        input: {
+          minWidth: '20rem',
+        },
+      },
+    },
+  },
+
   svg: {
     width: '25px',
     height: '25px',
@@ -22,6 +32,5 @@ export const BoxInput = styled('div', {
     height: '100%',
     outline: 0,
     width: '100%',
-    minWidth: '20rem',
   },
 });

@@ -6,8 +6,9 @@ export const globalStyles = globalCss({
     padding: 0,
   },
 
-  'html, body, #root': {
+  'html, body, main, #root': {
     height: '100%',
+    width: '100%',
   },
 
   body: {

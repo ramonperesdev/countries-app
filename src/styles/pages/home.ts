@@ -1,16 +1,29 @@
 import { styled } from '..';
 
-export const HomeContainer = styled('main', {
+export const HomeContainer = styled('div', {
   display: 'flex',
   width: '100%',
   height: '100%',
   maxWidth: 1180,
-  marginTop: '2rem',
+  margin: '2rem auto',
 });
 
 export const BoxInputFilter = styled('div', {
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
+  flexDirection: 'column',
   width: '100%',
+  gap: '1rem',
+  padding: '0 1rem',
+
+  variants: {
+    display: {
+      row: {
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        gap: 0,
+        padding: 0,
+      },
+    },
+  },
 });
