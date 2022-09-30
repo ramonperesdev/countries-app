@@ -1,15 +1,14 @@
 import { AppProps } from 'next/app';
+import Header from '../components/Header';
 import { globalStyles } from '../styles/global';
-import { Container, Header, TitleHeader } from '../styles/pages/app';
+import { Container } from '../styles/pages/app';
 
 globalStyles();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Container>
-      <Header>
-        <TitleHeader>Where in the world ?</TitleHeader>
-      </Header>
+      <Header />
 
       <Component {...pageProps} />
     </Container>

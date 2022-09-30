@@ -17,6 +17,12 @@ export const globalStyles = globalCss({
     '-webkit-font-smoothing': 'antialiased',
   },
 
+  input: {
+    '&:focus': {
+      border: 'none',
+    },
+  },
+
   'body, input, textarea, button': {
     fontFamily: 'Nunito Sans',
     fontWeight: 400,

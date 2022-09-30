@@ -7,12 +7,3 @@ export const Container = styled('div', {
   justifyContent: 'center',
   height: '100%',
 });
-
-export const Header = styled('header', {
-  padding: '2rem 0',
-  width: '100%',
-  maxWidth: 1180,
-  margin: '0 auto',
-});
-
-export const TitleHeader = styled('h2', {});
