@@ -7,3 +7,10 @@ export const HomeContainer = styled('main', {
   maxWidth: 1180,
   marginTop: '2rem',
 });
+
+export const BoxInputFilter = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '100%',
+});

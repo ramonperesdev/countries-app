@@ -6,7 +6,7 @@ export default function InputSearch() {
     <InputContainer>
       <BoxInput>
         <AiOutlineSearch />
-        <input name="test" />
+        <input name="test" placeholder="Search for a country..." />
       </BoxInput>
     </InputContainer>
   );

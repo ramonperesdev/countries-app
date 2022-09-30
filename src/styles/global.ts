@@ -8,19 +8,12 @@ export const globalStyles = globalCss({
 
   'html, body, #root': {
     height: '100%',
-    overflow: 'hidden',
   },
 
   body: {
     backgroundColor: '$gray100',
     color: '$blue600',
     '-webkit-font-smoothing': 'antialiased',
-  },
-
-  input: {
-    '&:focus': {
-      border: 'none',
-    },
   },
 
   'body, input, textarea, button': {

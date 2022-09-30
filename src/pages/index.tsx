@@ -1,10 +1,14 @@
+import Dropdown from '../components/Dropdown';
 import InputSearch from '../components/InputSearch';
-import { HomeContainer } from '../styles/pages/home';
+import { BoxInputFilter, HomeContainer } from '../styles/pages/home';
 
 export default function Home() {
   return (
     <HomeContainer>
-      <InputSearch />
+      <BoxInputFilter>
+        <InputSearch />
+        <Dropdown />
+      </BoxInputFilter>
     </HomeContainer>
   );
 }

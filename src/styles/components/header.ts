@@ -7,10 +7,10 @@ export const HeaderContainer = styled('header', {
 });
 
 export const HeaderContent = styled('div', {
-  height: '100%',
-  maxWidth: 1180,
   display: 'flex',
   alignItems: 'center',
+  height: '100%',
+  maxWidth: 1180,
   margin: '0  auto',
 });
 
