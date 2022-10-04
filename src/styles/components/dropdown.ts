@@ -31,7 +31,7 @@ export const ContentTrigger = styled('div', {
   justifyContent: 'space-between',
   height: '2.8rem',
   padding: '0 15px',
-  width: 200,
+  width: 220,
   backgroundColor: '$white',
   boxShadow: '0px 0px 20px -5px rgba(0,0,0,0.25)',
   cursor: 'default',

@@ -2,53 +2,56 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Dropdown from '../components/Dropdown';
 import InputSearch from '../components/InputSearch';
 import ListCountries from '../components/ListCountries';
-import { getCountries } from '../services';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { loadCountries } from '../store/countries';
 import {
   BoxCountries,
   BoxInputFilter,
   HomeContainer,
 } from '../styles/pages/home';
+import { ICountriesData } from '../@types/types';
+
+interface ICountriesState {
+  countries: ICountriesData;
+}
 
 export default function Home() {
-  console.log('entrou home');
-  const [data, setData] = useState([]);
+  const dispatch = useAppDispatch();
+  const { countries } = useAppSelector(
+    (state: ICountriesState) => state.countries
+  );
+  // const [data, setData] = useState([]);
 
-  const handleGetCountries = useCallback(async () => {
-    const { apiCall } = getCountries();
+  console.log('state countries', countries);
 
-    try {
-      const { data } = await apiCall();
-      console.log(
-        'response',
-        data.map((item) => ({
-          name: item?.name?.common,
-          population: item?.population,
-          region: item?.region,
-          capital: item?.capital?.[0],
-          flag: item?.flags?.png,
-        }))
-      );
-      setData(
-        data.map((item) => ({
-          name: item?.name?.common,
-          population: item?.population,
-          region: item?.region,
-          capital: item?.capital?.[0],
-          flag: item?.flags?.png,
-        }))
-      );
-    } catch (err) {
-      console.log('err', err);
-    }
+  // const handleGetCountries = useCallback(async () => {
+  //   const { apiCall } = getCountries();
+
+  //   try {
+  //     const { data } = await apiCall();
+
+  //     setData(
+  //       data.map((item) => ({
+  //         id: uniqueId(),
+  //         name: item?.name?.common,
+  //         population: item?.population,
+  //         region: item?.region,
+  //         capital: item?.capital?.[0],
+  //         flag: item?.flags?.png,
+  //       }))
+  //     );
+  //   } catch (err) {
+  //     console.log('err', err);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   handleGetCountries();
+  // }, [handleGetCountries]);
+
+  useEffect(() => {
+    dispatch(loadCountries());
   }, []);
-
-  useEffect(() => {
-    handleGetCountries();
-  }, [handleGetCountries]);
-
-  useEffect(() => {
-    console.log('data ueh', data);
-  }, [data]);
 
   return (
     <main>
@@ -58,8 +61,8 @@ export default function Home() {
           <Dropdown />
         </BoxInputFilter>
         <BoxCountries>
-          {data.map((country) => (
-            <ListCountries data={country} />
+          {countries.map((country) => (
+            <ListCountries key={country?.id} data={country} />
           ))}
         </BoxCountries>
       </HomeContainer>

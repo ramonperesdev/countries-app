@@ -4,6 +4,8 @@ export const globalStyles = globalCss({
   '*': {
     margin: 0,
     padding: 0,
+    outline: 0,
+    boxSizing: 'border-box',
   },
 
   'html, body, main, #root': {
@@ -20,5 +22,9 @@ export const globalStyles = globalCss({
   'body, input, textarea, button': {
     fontFamily: 'Nunito Sans',
     fontWeight: 400,
+  },
+
+  img: {
+    maxWidth: '100%',
   },
 });

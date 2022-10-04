@@ -8,6 +8,8 @@ import {
   StyledContent,
   StyledItem,
 } from '../../styles/components/dropdown';
+import { useAppDispatch } from '../../hooks';
+import { loadCountries, loadCountriesByRegion } from '../../store/countries';
 
 function Content({ children, ...props }) {
   return (
@@ -26,6 +28,8 @@ export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 export default function Dropdown() {
+  const dispatch = useAppDispatch();
+
   const [countryActive, setCountryActive] = useState(null);
   const [open, setOpen] = useState(false);
 
@@ -41,7 +45,6 @@ export default function Dropdown() {
             {countryActive ? countryActive : 'Filter By Region'}
           </NameTrigger>
           <BsChevronLeft />
-          {/* {open ? <BsChevronDown /> : <BsChevronLeft />} */}
         </ContentTrigger>
       </DropdownMenuTrigger>
 
@@ -49,20 +52,59 @@ export default function Dropdown() {
         sideOffset={5}
         onClick={() => console.log('entrou test')}
       >
-        <DropdownMenuItem onClick={() => setCountryActive('Europe')}>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountriesByRegion('europe'));
+            setCountryActive('Europe');
+            setOpen(false);
+          }}
+        >
           Europe
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setCountryActive('Africa')}>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountriesByRegion('africa'));
+            setCountryActive('Africa');
+            setOpen(false);
+          }}
+        >
           Africa
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setCountryActive('America')}>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountriesByRegion('america'));
+            setCountryActive('America');
+            setOpen(false);
+          }}
+        >
           America
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setCountryActive('Asia')}>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountriesByRegion('asia'));
+            setCountryActive('Asia');
+            setOpen(false);
+          }}
+        >
           Asia
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setCountryActive('Oceania')}>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountriesByRegion('oceania'));
+            setCountryActive('Oceania');
+            setOpen(false);
+          }}
+        >
           Oceania
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            dispatch(loadCountries());
+            setCountryActive(null);
+            setOpen(false);
+          }}
+        >
+          All Countries
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
