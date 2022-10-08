@@ -7,6 +7,7 @@ import {
   NameCountry,
   OthersInfo,
 } from '../../styles/components/listCountries';
+import { useRouter } from 'next/router';
 
 interface ICountriesData {
   data: {
@@ -19,8 +20,13 @@ interface ICountriesData {
 }
 
 export default function ListCountries({ data }: ICountriesData) {
+  const router = useRouter();
+
   return (
-    <ContainerCountry>
+    <ContainerCountry
+      role="button"
+      onClick={() => router.push(`/country-details/${data?.name}`)}
+    >
       <BoxImage>
         <Image
           src={data?.flag}
@@ -28,6 +34,7 @@ export default function ListCountries({ data }: ICountriesData) {
           layout="fill"
           objectFit="cover"
           quality={100}
+          priority
         />
       </BoxImage>
       <BoxInfo>

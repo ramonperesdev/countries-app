@@ -1,4 +1,4 @@
-import { keyframes, styled } from '@stitches/react';
+import { keyframes, styled } from '..';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 const slideUpAndFade = keyframes({
@@ -20,10 +20,6 @@ const slideLeftAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(2px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
 });
-
-interface IContentTrigger {
-  openDropdown: boolean;
-}
 
 export const ContentTrigger = styled('div', {
   display: 'flex',

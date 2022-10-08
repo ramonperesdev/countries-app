@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 export default function CountryDetails() {
   const {
-    query: { id },
+    query: { name },
   } = useRouter();
-  return <h1>Country Details {id}</h1>;
+  return <h1>Country Details {name}</h1>;
 }

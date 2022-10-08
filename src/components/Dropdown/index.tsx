@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { BsChevronLeft, BsChevronDown } from 'react-icons/bs';
+import { BsChevronLeft } from 'react-icons/bs';
 
 import {
   ContentTrigger,
@@ -28,14 +28,10 @@ export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 export default function Dropdown() {
-  const dispatch = useAppDispatch();
-
   const [countryActive, setCountryActive] = useState(null);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    console.log('countryActive', countryActive);
-  }, [countryActive]);
+  const dispatch = useAppDispatch();
 
   return (
     <DropdownMenu>
@@ -52,51 +48,18 @@ export default function Dropdown() {
         sideOffset={5}
         onClick={() => console.log('entrou test')}
       >
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountriesByRegion('europe'));
-            setCountryActive('Europe');
-            setOpen(false);
-          }}
-        >
-          Europe
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountriesByRegion('africa'));
-            setCountryActive('Africa');
-            setOpen(false);
-          }}
-        >
-          Africa
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountriesByRegion('america'));
-            setCountryActive('America');
-            setOpen(false);
-          }}
-        >
-          America
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountriesByRegion('asia'));
-            setCountryActive('Asia');
-            setOpen(false);
-          }}
-        >
-          Asia
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountriesByRegion('oceania'));
-            setCountryActive('Oceania');
-            setOpen(false);
-          }}
-        >
-          Oceania
-        </DropdownMenuItem>
+        {['Europe', 'Africa', 'Asia', 'Oceania', 'America'].map((item) => (
+          <DropdownMenuItem
+            key={item}
+            onClick={() => {
+              dispatch(loadCountriesByRegion(item.toLowerCase()));
+              setCountryActive(item);
+              setOpen(false);
+            }}
+          >
+            {item}
+          </DropdownMenuItem>
+        ))}
         <DropdownMenuItem
           onClick={() => {
             dispatch(loadCountries());

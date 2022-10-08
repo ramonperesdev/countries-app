@@ -1,9 +1,10 @@
-import { styled } from '@stitches/react';
+import { styled } from '..';
 
 export const ContainerCountry = styled('div', {
   height: '20rem',
   boxShadow: '0px 0px 20px -5px rgba(0,0,0,0.25)',
   borderRadius: 10,
+  cursor: 'pointer',
 });
 export const BoxImage = styled('div', {
   position: 'relative',

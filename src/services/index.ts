@@ -25,3 +25,13 @@ export function getCountriesByRegion() {
 
   return { apiCall, source };
 }
+
+export function getCountryDetails() {
+  const source = CancelToken.source();
+
+  function apiCall({ nameCountry }: { nameCountry: string }) {
+    return api.get(`/name/${nameCountry}`);
+  }
+
+  return { apiCall, source };
+}
