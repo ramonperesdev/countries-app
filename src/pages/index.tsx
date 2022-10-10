@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main>
       <HomeContainer>
-        <BoxInputFilter display={{ '@bp2': 'row' }}>
+        <BoxInputFilter display={{ '@bp3': 'row' }}>
           <InputSearch />
           <Dropdown />
         </BoxInputFilter>

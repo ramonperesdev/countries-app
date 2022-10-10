@@ -1,6 +1,7 @@
 import { styled } from '..';
 
 export const InputContainer = styled('div', {});
+
 export const BoxInput = styled('div', {
   display: 'flex',
   height: '2.8rem',

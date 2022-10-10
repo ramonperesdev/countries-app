@@ -8,7 +8,7 @@ export const HeaderContainer = styled('header', {
 
 export const HeaderContent = styled('div', {
   height: '100%',
-  maxWidth: 1180,
+  maxWidth: 1200,
   display: 'flex',
   alignItems: 'center',
   margin: '0  auto',

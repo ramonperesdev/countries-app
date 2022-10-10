@@ -30,11 +30,11 @@ const slice = createSlice({
   name: 'countries',
   initialState,
   reducers: {
-    loadCountriesRequest: (state: ICountriesData) => {
+    loadCountriesRequest: (state: IStateSlice) => {
       state.loading = true;
     },
     loadCountriesSuccess: (
-      state: ICountriesData,
+      state: IStateSlice,
       action: PayloadAction<Array<ICountryData>>
     ) => {
       const { payload } = action;
@@ -42,35 +42,45 @@ const slice = createSlice({
       state.countriesBackup = payload;
       state.loading = false;
     },
-    loadCountriesFailure: (state: ICountriesData) => {
+    loadCountriesFailure: (state: IStateSlice) => {
       state.error = true;
       state.loading = false;
     },
 
-    loadCountriesByRegionSuccess: (state: ICountriesData, action) => {
+    loadCountriesByRegionSuccess: (
+      state: IStateSlice,
+      action: PayloadAction<Array<ICountryData>>
+    ) => {
       const { payload } = action;
       state.countries = payload;
     },
-    loadCountriesByRegionFailure: (state: ICountriesData) => {
+    loadCountriesByRegionFailure: (state: IStateSlice) => {
       state.error = true;
     },
 
-    loadCountriesBySearchSuccess: (state: ICountriesData, action) => {
+    loadCountriesBySearchSuccess: (
+      state: IStateSlice,
+      action: PayloadAction<string>
+    ) => {
       const { payload } = action;
       state.countries = state.countriesBackup.filter((country) =>
         country?.name.toLowerCase().includes(payload.toLowerCase())
       );
     },
 
-    loadCountryDetailsRequest: (state) => {
+    loadCountryDetailsRequest: (state: IStateSlice) => {
       state.loadingDetails = true;
     },
-    loadCountryDetailsSuccess: (state, action) => {
+    loadCountryDetailsSuccess: (
+      state: IStateSlice,
+      action: PayloadAction<ICountryDetails>
+    ) => {
       const { payload } = action;
+      console.log('payload', payload);
       state.loadingDetails = false;
       state.countryDetails = payload;
     },
-    loadCountryDetailsFailure: (state) => {
+    loadCountryDetailsFailure: (state: IStateSlice) => {
       state.loadingDetails = false;
     },
   },
@@ -151,24 +161,35 @@ export const loadCountriesBySearch = (nameCountry) => (dispatch) => {
 export const loadCountryDetails = (nameCountry) => async (dispatch) => {
   const { apiCall } = getCountryDetails();
   dispatch(loadCountryDetailsRequest());
+  console.log('nameCountry', nameCountry);
   try {
     const { data } = await apiCall({ nameCountry });
+    console.log(
+      'data from loadCountryDetails >>',
+      Object.values(data[0].languages)[0]
+    );
 
     dispatch(
       loadCountryDetailsSuccess({
         id: uniqueId(),
-        name: data[0].name.common,
+        name: data[0].name?.common,
+        nativeName: data[0].name?.nativeName?.spa?.common,
         population: (
           Math.round(data[0].population * 100) / 100
         ).toLocaleString(),
         region: data[0].region,
+        subRegion: data[0].subregion,
         capital: data[0].capital?.[0],
         flag: data[0].flags?.png,
         levelDomain: data[0].tld[0],
-        // currencies: Object.values(data[0].currencies)[0].name,
+        currencie: Object.values(data[0].currencies)[0],
+        language: Object.values(data[0].languages)[0] as string,
+        borderCountries: data[0].borders,
       })
     );
-  } catch (err) {}
+  } catch (err) {
+    dispatch(loadCountryDetailsFailure());
+  }
 };
 
 /* 

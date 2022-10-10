@@ -10,15 +10,17 @@ export interface ICountryData {
 export interface ICountryDetails {
   id: string;
   name: string;
-  population: number;
+  nativeName: string;
+  population: string;
   region: string;
-  flag: string;
-  capital?: string;
-  levelDomain?: string;
-  currencies?: string;
   subRegion?: string;
-  languages?: string;
-  border?: string[];
+  capital?: string;
+  flag: string;
+  levelDomain?: string;
+  // currencie?: string;
+  currencie?: { name?: string; symbol?: string };
+  language?: string;
+  borderCountries?: string[];
 }
 export interface ICountriesData {
   countries: Array<ICountryData>;

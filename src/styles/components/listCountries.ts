@@ -6,10 +6,12 @@ export const ContainerCountry = styled('div', {
   borderRadius: 10,
   cursor: 'pointer',
 });
+
 export const BoxImage = styled('div', {
   position: 'relative',
   height: '60%',
 });
+
 export const BoxInfo = styled('div', {
   display: 'flex',
   flexDirection: 'column',
@@ -17,16 +19,19 @@ export const BoxInfo = styled('div', {
   height: '40%',
   padding: '0 1rem',
 });
+
 export const NameCountry = styled('h2', {
   marginTop: '1rem',
   fontSize: '0.875rem',
 });
+
 export const OthersInfo = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
   justifyContent: 'center',
 });
+
 export const Info = styled('span', {
   fontSize: '0.75rem',
 });

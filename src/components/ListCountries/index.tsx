@@ -25,7 +25,9 @@ export default function ListCountries({ data }: ICountriesData) {
   return (
     <ContainerCountry
       role="button"
-      onClick={() => router.push(`/country-details/${data?.name}`)}
+      onClick={() =>
+        router.push(`/country-details/${data?.name.toLowerCase()}`)
+      }
     >
       <BoxImage>
         <Image

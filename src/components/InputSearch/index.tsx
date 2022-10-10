@@ -17,7 +17,7 @@ export default function InputSearch() {
 
   return (
     <InputContainer>
-      <BoxInput width={{ '@bp2': 'desk' }}>
+      <BoxInput width={{ '@bp3': 'desk' }}>
         <AiOutlineSearch />
         <input
           id="nameCountry"

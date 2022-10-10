@@ -4,7 +4,7 @@ export const HomeContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  maxWidth: 1180,
+  maxWidth: 1200,
   margin: '2rem auto',
   padding: '0 1rem',
 });
