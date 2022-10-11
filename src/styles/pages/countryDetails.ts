@@ -19,6 +19,7 @@ export const ButtonBack = styled('button', {
   width: '100px',
   height: '30px',
 
+  cursor: 'pointer',
   background: '$white',
   boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
   border: 0,
@@ -62,7 +63,7 @@ export const BoxFlag = styled('div', {
 export const BoxTextDetails = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.5rem',
+  gap: '3rem',
   width: '100%',
 
   variants: {

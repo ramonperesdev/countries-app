@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import countries from './countries';
+import countries from './reducers/countries';
+import countryDetails from './reducers/countryDetails';
 
 const reducer = combineReducers({
   countries,
+  countryDetails,
 });
 
 // creating store

@@ -17,7 +17,6 @@ export interface ICountryDetails {
   capital?: string;
   flag: string;
   levelDomain?: string;
-  // currencie?: string;
   currencie?: { name?: string; symbol?: string };
   language?: string;
   borderCountries?: string[];

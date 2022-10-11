@@ -34,3 +34,29 @@ export const BoxCountries = styled('div', {
   gap: '1rem',
   marginTop: '2rem',
 });
+
+export const ContentFeedback = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  height: '60vh',
+});
+
+export const Title = styled('h2', {
+  marginBottom: '0.375rem',
+});
+
+export const TextFeedback = styled('span', {
+  fontWeight: 600,
+  marginBottom: '1.5rem',
+});
+
+export const ButtonFeedback = styled('button', {
+  borderRadius: 5,
+  border: 0,
+  background: '$gray300',
+  padding: '0.575rem 2rem',
+  cursor: 'pointer',
+  color: '$white',
+});

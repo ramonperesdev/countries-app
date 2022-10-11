@@ -1,8 +1,15 @@
-import { BoxInput, InputContainer } from '../../styles/components/inputSearch';
+// LIBS
+import { useCallback, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { useCallback, useRef, useState } from 'react';
+
+// HOOKS
 import { useAppDispatch } from '../../hooks';
-import { loadCountriesBySearch } from '../../store/countries';
+
+// STORE
+import { loadCountriesBySearch } from '../../store/reducers/countries';
+
+// COMPONENTS
+import { BoxInput, InputContainer } from '../../styles/components/inputSearch';
 
 export default function InputSearch() {
   const [searchValue, setSearchValue] = useState('');

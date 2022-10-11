@@ -1,4 +1,8 @@
+// LIBS
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+// STYLES
 import {
   BoxImage,
   BoxInfo,
@@ -7,7 +11,6 @@ import {
   NameCountry,
   OthersInfo,
 } from '../../styles/components/listCountries';
-import { useRouter } from 'next/router';
 
 interface ICountriesData {
   data: {

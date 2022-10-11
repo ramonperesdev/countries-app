@@ -1,37 +1,38 @@
+// LIBS
 import React, { useState } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { BsChevronLeft } from 'react-icons/bs';
 
+// HOOKS
+import { useAppDispatch } from '../../hooks';
+
+// STORE
+import {
+  loadCountries,
+  loadCountriesByRegion,
+} from '../../store/reducers/countries';
+
+// STYLES
 import {
   ContentTrigger,
   NameTrigger,
   StyledContent,
   StyledItem,
 } from '../../styles/components/dropdown';
-import { useAppDispatch } from '../../hooks';
-import { loadCountries, loadCountriesByRegion } from '../../store/countries';
-
-function Content({ children, ...props }) {
-  return (
-    <DropdownMenuPrimitive.Portal>
-      <StyledContent {...props}>{children}</StyledContent>
-    </DropdownMenuPrimitive.Portal>
-  );
-}
 
 // EXPORTS
 export const DropdownMenu = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
-export const DropdownMenuContent = Content;
+export const DropdownMenuContent = DropdownMenuPrimitive.Portal;
 export const DropdownMenuItem = StyledItem;
 export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 export default function Dropdown() {
+  const dispatch = useAppDispatch();
+
   const [countryActive, setCountryActive] = useState(null);
   const [open, setOpen] = useState(false);
-
-  const dispatch = useAppDispatch();
 
   return (
     <DropdownMenu>
@@ -44,31 +45,30 @@ export default function Dropdown() {
         </ContentTrigger>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent
-        sideOffset={5}
-        onClick={() => console.log('entrou test')}
-      >
-        {['Europe', 'Africa', 'Asia', 'Oceania', 'America'].map((item) => (
+      <DropdownMenuContent>
+        <StyledContent sideOffset={5}>
+          {['Europe', 'Africa', 'Asia', 'Oceania', 'America'].map((item) => (
+            <DropdownMenuItem
+              key={item}
+              onClick={() => {
+                dispatch(loadCountriesByRegion(item.toLowerCase()));
+                setCountryActive(item);
+                setOpen(false);
+              }}
+            >
+              {item}
+            </DropdownMenuItem>
+          ))}
           <DropdownMenuItem
-            key={item}
             onClick={() => {
-              dispatch(loadCountriesByRegion(item.toLowerCase()));
-              setCountryActive(item);
+              dispatch(loadCountries());
+              setCountryActive(null);
               setOpen(false);
             }}
           >
-            {item}
+            All Countries
           </DropdownMenuItem>
-        ))}
-        <DropdownMenuItem
-          onClick={() => {
-            dispatch(loadCountries());
-            setCountryActive(null);
-            setOpen(false);
-          }}
-        >
-          All Countries
-        </DropdownMenuItem>
+        </StyledContent>
       </DropdownMenuContent>
     </DropdownMenu>
   );

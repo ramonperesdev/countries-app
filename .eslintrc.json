@@ -13,8 +13,7 @@
     "airbnb-typescript",
     "prettier",
     "eslint:recommended",
-    "plugin:react/jsx-runtime",
-    "next/core-web-vitals"
+    "plugin:react/jsx-runtime"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -44,6 +43,8 @@
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "warn",
     "no-unused-vars": "warn",
     "no-console": "warn",
     "no-alert": "warn",
