@@ -51,6 +51,7 @@ const slice = createSlice({
       const { payload } = action;
       state.loading = false;
       state.countries = payload;
+      state.countriesBackup = payload;
     },
     loadCountriesByRegionFailure: (state: IStateCountriesSlice) => {
       state.loading = false;

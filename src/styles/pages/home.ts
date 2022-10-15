@@ -4,7 +4,7 @@ export const HomeContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  maxWidth: 1200,
+  maxWidth: 1300,
   margin: '2rem auto',
   padding: '0 1rem',
 });
@@ -32,7 +32,10 @@ export const BoxCountries = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
   gap: '1rem',
-  marginTop: '2rem',
+  margin: '2rem 0',
+  padding: '0 15px',
+  height: '100%',
+  overflowY: 'auto',
 });
 
 export const ContentFeedback = styled('div', {

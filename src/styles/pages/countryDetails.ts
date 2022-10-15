@@ -5,7 +5,7 @@ export const WrapperDetails = styled('div', {
   flexDirection: 'column',
   width: '100%',
   height: '100%',
-  maxWidth: 1200,
+  maxWidth: 1300,
   margin: '2rem auto',
   padding: '0px 1rem',
 });
