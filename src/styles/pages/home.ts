@@ -32,8 +32,8 @@ export const BoxCountries = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
   gap: '1rem',
-  margin: '2rem 0',
-  padding: '0 15px',
+  margin: '1rem 0',
+  padding: '1rem 15px',
   height: '100%',
   overflowY: 'auto',
 });
