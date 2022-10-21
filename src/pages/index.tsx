@@ -1,5 +1,5 @@
 // LIBS
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 // HOOKS
 import { useAppDispatch, useAppSelector } from '../hooks';
@@ -43,7 +43,7 @@ export default function Home() {
     return () => {
       dispatch(restoreAllStates());
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <main>

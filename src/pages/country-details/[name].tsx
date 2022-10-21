@@ -55,7 +55,7 @@ export default function CountryDetails() {
     return () => {
       dispatch(restoreAllStates());
     };
-  }, [loadCountryDetails]);
+  }, [dispatch, name]);
 
   return (
     <WrapperDetails>

@@ -1,5 +1,5 @@
 // LIBS
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { BsChevronLeft } from 'react-icons/bs';
 

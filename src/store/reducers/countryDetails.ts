@@ -59,7 +59,6 @@ const {
 export const loadCountryDetails = (nameCountry) => async (dispatch) => {
   const { apiCall } = getCountryDetails();
   dispatch(loadCountryDetailsRequest());
-  console.log('nameCountry', nameCountry);
   try {
     const { data } = await apiCall({ nameCountry });
 

@@ -1,5 +1,4 @@
 // LIBS
-import React from 'react';
 import ReactLoading, { LoadingType } from 'react-loading';
 
 // STYLES

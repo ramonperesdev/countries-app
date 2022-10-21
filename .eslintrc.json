@@ -13,7 +13,8 @@
     "airbnb-typescript",
     "prettier",
     "eslint:recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -30,7 +31,8 @@
     "prettier",
     "jsx-a11y",
     "react-hooks",
-    "import"
+    "import",
+    "testing-library"
   ],
   "rules": {
     "prettier/prettier": [

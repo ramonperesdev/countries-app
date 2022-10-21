@@ -16,11 +16,13 @@ export default function InputSearch() {
 
   const dispatch = useAppDispatch();
 
-  const handleSearchCountry = useCallback(({ target }) => {
-    console.log('func', target);
-    setSearchValue(target.value);
-    dispatch(loadCountriesBySearch(target.value));
-  }, []);
+  const handleSearchCountry = useCallback(
+    ({ target }) => {
+      setSearchValue(target.value);
+      dispatch(loadCountriesBySearch(target.value));
+    },
+    [dispatch]
+  );
 
   return (
     <InputContainer>
